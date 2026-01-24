@@ -31,7 +31,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/rhenzdaived"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
@@ -46,7 +46,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/rhenzdaived"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
