@@ -44,7 +44,7 @@ export default function Projects() {
     {
       title: 'Ecocraft Employee Management System',
       description:
-        'Employee Management System that useds CRUD operations using Django Framework.',
+        'Employee Management System that used CRUD operations using Django Framework.',
       techStack: ['Python', 'Django', 'MySQL', 'Bootstrap'],
       image: '/images/ecocraft.png', // ok now
       github: 'https://github.com/rhenzdaived/EcoCraft-Employee-Management-System',

@@ -18,7 +18,7 @@ export default function Contact() {
 
           <div className="space-y-6">
             <a
-              href="mailto:peliganrhenzdaived@gmail.com"
+              href="mailto:peliganrhenzdaived@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Rhenz"
               className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
             >
               <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors flex-shrink-0">
