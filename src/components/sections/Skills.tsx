@@ -1,6 +1,6 @@
 'use client'
 
-import { Code2, Globe, Cloud, Shield, Wrench } from 'lucide-react'
+import { Code2, Cloud, Shield, Wrench, ServerCog, TerminalSquare } from 'lucide-react'
 
 type SkillCategory = {
   title: string
@@ -12,72 +12,67 @@ type SkillCategory = {
 export default function Skills() {
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Programming',
+      title: 'Languages',
       subtitle: 'Core languages I use to build and automate',
       icon: <Code2 className="h-5 w-5" />,
-      skills: ['Python', 'JavaScript', 'HTML5', 'CSS3'],
+      skills: ['Python', 'JavaScript', 'PHP', 'SQL'],
     },
     {
-      title: 'Web Development',
-      subtitle: 'Modern frameworks and runtime tools',
-      icon: <Globe className="h-5 w-5" />,
-      skills: ['Next.js', 'React.js', 'Node.js'],
+      title: 'Frameworks',
+      subtitle: 'Modern web stacks and UI systems',
+      icon: <TerminalSquare className="h-5 w-5" />,
+      skills: ['Next.js', 'React', 'Laravel', 'Node.js', 'Tailwind CSS'],
     },
     {
-      title: 'Cloud',
-      subtitle: 'Cloud fundamentals and real-time backend services',
-      icon: <Cloud className="h-5 w-5" />,
-      skills: ['AWS Cloud Fundamentals', 'Firebase'],
-    },
-    {
-      title: 'Networking & Security',
-      subtitle: 'Foundations for secure and reliable networks',
+      title: 'Security Tools',
+      subtitle: 'Practical tooling for labs and analysis',
       icon: <Shield className="h-5 w-5" />,
-      skills: [
-        'Routing & Switching Fundamentals',
-        'TCP/IP',
-        'Network Defense Basics',
-        'Cybersecurity Principles',
-        'Basic Hardware/Software Troubleshooting',
-      ],
+      skills: ['Kali Linux', 'Wireshark', 'Burp Suite', 'OWASP ZAP', 'Nmap', 'Nikto'],
+    },
+    {
+      title: 'Cloud / Infra',
+      subtitle: 'Infrastructure and backend fundamentals',
+      icon: <Cloud className="h-5 w-5" />,
+      skills: ['AWS Cloud', 'Firebase'],
+    },
+    {
+      title: 'Networking',
+      subtitle: 'Security-aware networking fundamentals',
+      icon: <ServerCog className="h-5 w-5" />,
+      skills: ['TCP/IP', 'Routing & Switching', 'Network Defense Basics', 'Troubleshooting'],
     },
     {
       title: 'Tools',
-      subtitle: 'Daily tools I’m comfortable with',
+      subtitle: 'Daily engineering habits that keep work moving',
       icon: <Wrench className="h-5 w-5" />,
-      skills: ['Git/GitHub', 'VS Code', 'AWS Academy Labs', 'Packet Tracer'],
+      skills: ['Git', 'GitHub'],
     },
   ]
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-950">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-green-500">
-            Skills 
+    <section id="skills" className="scroll-mt-24 border-b border-zinc-200 bg-zinc-50 px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-zinc-500">Skills</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+            Practical skills for building, automating, and securing systems.
           </h2>
-          <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
-            A quick view of what I use across development, cloud, and networking/security.
-          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6 shadow-sm transition hover:border-green-500/40"
+              className="group border border-zinc-200 bg-white p-6 transition hover:border-zinc-950"
             >
-              {/* subtle glow */}
-              <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-green-500/10 blur-3xl opacity-0 transition group-hover:opacity-100" />
-
-              <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-green-400">
+              <div className="flex items-start gap-3 border-b border-zinc-100 pb-4">
+                <div className="flex h-10 w-10 items-center justify-center border border-zinc-950 bg-zinc-950 text-white">
                   {cat.icon}
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-white">{cat.title}</h3>
-                  <p className="text-sm text-gray-400 mt-1">{cat.subtitle}</p>
+                  <h3 className="text-lg font-semibold text-zinc-950">{cat.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-zinc-500">{cat.subtitle}</p>
                 </div>
               </div>
 
@@ -85,7 +80,7 @@ export default function Skills() {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-flex items-center rounded-full border border-zinc-800 bg-zinc-900/40 px-3 py-1 text-sm text-gray-200 transition hover:border-green-500/40 hover:text-green-300"
+                    className="inline-flex items-center border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-zinc-700 transition group-hover:border-zinc-950 group-hover:text-zinc-950"
                   >
                     {skill}
                   </span>
@@ -94,8 +89,6 @@ export default function Skills() {
             </div>
           ))}
         </div>
-
-        
       </div>
     </section>
   )

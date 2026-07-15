@@ -1,73 +1,101 @@
-'use client';
-
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, MapPin, PhoneCallIcon} from 'lucide-react'
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-zinc-900">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          Get In <span className="text-green-500">Touch</span>
-        </h2>
-        <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          Let's work together! Feel free to reach out for opportunities or collaborations
-        </p>
+    <section id="contact" className="scroll-mt-24 bg-zinc-950 px-4 py-24 text-white sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-zinc-400">
+            Contact
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+            Direct contact, resume download, and professional links.
+          </h2>
+        </div>
 
-        <div className="bg-zinc-950 rounded-xl p-8 border border-zinc-800 max-w-2xl mx-auto">
-          <h3 className="text-2xl font-bold mb-8 text-white text-center">Contact Info</h3>
-
-          <div className="space-y-6">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="border border-white/15 bg-white p-6 text-zinc-950 sm:p-8">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">
+              Primary Contact
+            </p>
             <a
-              href="mailto:peliganrhenzdaived@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Rhenz"
-              className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
+              href="mailto:peliganrhenzdaived@gmail.com?subject=Portfolio%20Inquiry"
+              className="mt-5 block text-3xl font-semibold tracking-[-0.04em] transition hover:text-zinc-600"
             >
-              <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors flex-shrink-0">
-                <Mail className="text-green-500" size={24} />
+              peliganrhenzdaived@gmail.com
+            </a>
+            <p className="mt-4 max-w-lg text-sm leading-7 text-zinc-600">
+              Best for internship opportunities, junior roles, freelance inquiries, or project
+              collaborations.
+            </p>
+
+            <div className="mt-8 space-y-3 border-t border-zinc-200 pt-6 text-sm text-zinc-600">
+              <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-zinc-700" />
+                <span>Batangas, Philippines</span>
               </div>
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-zinc-700" />
+                <span>peliganrhenzdaived@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <PhoneCallIcon className="h-4 w-4 text-zinc-700" />
+                <span>+63 916 709 6300</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center justify-between border border-white/15 bg-white/5 px-6 py-5 transition hover:bg-white hover:text-zinc-950"
+            >
               <div>
-                <p className="text-sm text-gray-500">Email</p>
-                <p className="font-medium">peliganrhenzdaived@gmail.com</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
+                  Resume
+                </p>
+                <p className="mt-2 text-lg font-semibold">Download PDF</p>
               </div>
+              <Download size={18} />
             </a>
 
             <a
               href="https://github.com/rhenzdaived"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
+              className="flex items-center justify-between border border-white/15 bg-white/5 px-6 py-5 transition hover:bg-white hover:text-zinc-950"
             >
-              <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors flex-shrink-0">
-                <Github className="text-green-500" size={24} />
-              </div>
               <div>
-                <p className="text-sm text-gray-500">GitHub</p>
-                <p className="font-medium">github.com/rhenzdaived</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
+                  GitHub
+                </p>
+                <p className="mt-2 text-lg font-semibold">github.com/rhenzdaived</p>
               </div>
+              <Github size={18} />
             </a>
 
             <a
               href="https://www.linkedin.com/in/rhenzdaived"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-4 text-gray-400 hover:text-green-500 transition-colors group"
+              className="flex items-center justify-between border border-white/15 bg-white/5 px-6 py-5 transition hover:bg-white hover:text-zinc-950"
             >
-              <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors flex-shrink-0">
-                <Linkedin className="text-green-500" size={24} />
-              </div>
               <div>
-                <p className="text-sm text-gray-500">LinkedIn</p>
-                <p className="font-medium">linkedin.com/in/rhenzdaived</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
+                  LinkedIn
+                </p>
+                <p className="mt-2 text-lg font-semibold">linkedin.com/in/rhenzdaived</p>
               </div>
+              <Linkedin size={18} />
             </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-zinc-800 text-center">
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Rhenz Peligan | All rights reserved.
-          </p>
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.22em] text-zinc-400">
+          <p>&copy; {new Date().getFullYear()} Rhenz Peligan</p>
         </div>
       </div>
     </section>
-  );
+  )
 }

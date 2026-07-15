@@ -1,90 +1,92 @@
 'use client'
 
 import Image from 'next/image'
-import { GraduationCap, Code2, Target } from 'lucide-react'
+import { BriefcaseBusiness, GraduationCap, ShieldCheck, ScanSearch } from 'lucide-react'
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="scroll-mt-24 border-b border-zinc-200 bg-white px-4 py-24 sm:px-6 lg:px-8"
     >
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-zinc-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.15),_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_transparent,_#000000)]" />
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+        <div className="space-y-6">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-zinc-500">
+            About
+          </p>
+          <h2 className="max-w-xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+            Aspiring Software Developer / Cybersecurity Enthusiast
+          </h2>
+          <p className="max-w-xl text-base leading-8 text-zinc-600">
+            A fresh BS Information Technology graduate, Majoring in Network Technology at Batangas State
+            University - TNEU. My work centers on practical software delivery, clean documentation, and a
+            growing specialization in cybersecurity, networking, and reliable web tooling.
+          </p>
 
-      <div className="relative max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
-          About <span className="text-green-500">Me</span>
-        </h2>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT: BIG profile image */}
-          <div className="flex justify-center">
-            <div className="relative">
-              {/* Green glow */}
-              <div className="absolute -inset-4 rounded-3xl bg-green-500/20 blur-2xl" />
-
-              {/* Image */}
-              <div className="relative w-80 h-80 md:w-[420px] md:h-[420px] rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Rhenz profile photo"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+          <div className="grid gap-4 border border-zinc-200 bg-zinc-50 p-5">
+            <div className="flex items-start gap-3">
+              <ScanSearch className="mt-0.5 h-4 w-4 text-zinc-700" />
+              <p className="text-sm leading-7 text-zinc-600">
+                I approach projects like systems diagrams: define the inputs, protect the boundary,
+                and keep the output readable.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <ShieldCheck className="mt-0.5 h-4 w-4 text-zinc-700" />
+              <p className="text-sm leading-7 text-zinc-600">
+                Cybersecurity is part of the design language, not an afterthought.
+              </p>
             </div>
           </div>
+        </div>
 
-          {/* RIGHT: content */}
-          <div className="space-y-10">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-xl bg-green-500/10 flex items-center justify-center">
-                <GraduationCap className="text-green-500" size={28} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
+        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="relative overflow-hidden border border-zinc-200 bg-zinc-50">
+            <Image
+              src="/images/picpro.png"
+              alt="Rhenz Peligan portrait"
+              width={800}
+              height={1000}
+              className="h-full w-full object-cover grayscale"
+              priority
+            />
+          </div>
+
+          <div className="space-y-4">
+            <div className="border border-zinc-200 p-5">
+              <div className="flex items-center gap-3">
+                <GraduationCap className="h-4 w-4 text-zinc-700" />
+                <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-zinc-950">
                   Education
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  BS Information Technology major in Network Technology at Batangas State University.
-                  Currently seeking an internship to gain hands-on experience
-                  in real-world settings.
-                </p>
               </div>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                BS Information Technology, Major in Network Technology, Batangas State University - TNEU.
+              </p>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-xl bg-green-500/10 flex items-center justify-center">
-                <Code2 className="text-green-500" size={28} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  Technical Interests
+            <div className="border border-zinc-200 p-5">
+              <div className="flex items-center gap-3">
+                <BriefcaseBusiness className="h-4 w-4 text-zinc-700" />
+                <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-zinc-950">
+                  Focus
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  Interested in networking and cybersecurity, while also open to exploring various IT domains to broaden technical skills. Motivated to apply theoretical knowledge in practical settings and continuously learn from real-world projects.
-                </p>
               </div>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                Software development, automation, and cybersecurity & networking fundamentals 
+              </p>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-xl bg-green-500/10 flex items-center justify-center">
-                <Target className="text-green-500" size={28} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  Career Goals
+            <div className="border border-zinc-200 p-5">
+              <div className="flex items-center gap-3">
+                <ScanSearch className="h-4 w-4 text-zinc-700" />
+                <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-zinc-950">
+                  Career Goal
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  To work as an IT intern where I can contribute to real projects,
-                  learn from experienced professionals, and develop strong
-                  problem-solving, documentation, and technical skills.
-                </p>
               </div>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">
+                To contribute learned skills, while continuously improving and expanding my knowledge in professional settings.
+              </p>
             </div>
           </div>
         </div>

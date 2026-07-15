@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { ExternalLink, Github, ImageIcon } from 'lucide-react'
+import { ExternalLink, Github } from 'lucide-react'
 
 type Project = {
   title: string
@@ -17,8 +17,8 @@ export default function Projects() {
     {
       title: 'EggSight Dashboard',
       description:
-        'A Custom web-based dashboard for real-time tracking of eggs inspected integrated on capstone project.',
-      techStack: ['Nextjs', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Firebase'],
+        'A web-based dashboard for real-time tracking and operational visibility in the capstone workflow.',
+      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Firebase'],
       image: '/images/eggsight.png',
       github: 'https://github.com/rhenzdaived/Egg_Dashboard',
       demo: 'https://eggsight.online',
@@ -26,8 +26,8 @@ export default function Projects() {
     {
       title: 'Renta Juan',
       description:
-        'A car rental management system with full CRUD functionality.',
-      techStack: ['Reactjs', 'Javascript', 'Node.js', 'Firebase'],
+        'A car rental management system designed around CRUD operations and admin-facing workflows.',
+      techStack: ['React', 'JavaScript', 'Node.js', 'Firebase'],
       image: '/images/rentajuan.png',
       github: 'https://github.com/rhenzdaived/RentaJuan',
       demo: '',
@@ -35,34 +35,36 @@ export default function Projects() {
     {
       title: 'IoT-Based Rotten Egg Sorting Device Script',
       description:
-        'Main Script to run the IoT-Based Rotten Egg Sorting Device deployed on Raspberry Pi.',
-      techStack: ['Python', 'RaspberryPi', 'GPIO', 'OpenCV'],
-      image: '/images/script.png', 
+        'Python automation used to run the IoT-based sorting device deployed on Raspberry Pi hardware.',
+      techStack: ['Python', 'Raspberry Pi', 'GPIO', 'OpenCV'],
+      image: '/images/script.png',
       github: 'https://github.com/rhenzdaived/EggSight-Script',
       demo: '',
     },
     {
       title: 'Ecocraft Employee Management System',
       description:
-        'Employee Management System that used CRUD operations using Django Framework.',
+        'Employee management system built with Django and a straightforward CRUD flow.',
       techStack: ['Python', 'Django', 'MySQL', 'Bootstrap'],
-      image: '/images/ecocraft.png', // ok now
+      image: '/images/ecocraft.png',
       github: 'https://github.com/rhenzdaived/EcoCraft-Employee-Management-System',
       demo: '',
     },
   ]
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          Featured <span className="text-green-500">Projects</span>
-        </h2>
-        <p className="text-gray-400 text-center mb-14 max-w-2xl mx-auto">
-          Selected projects that demonstrate my skills and hands-on experience.
-        </p>
+    <section id="projects" className="scroll-mt-24 border-b border-zinc-200 bg-zinc-950 px-4 py-24 text-white sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-zinc-400">
+            Projects
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+            Selected work that shows product thinking, not just code output.
+          </h2>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => {
             const hasImage = !!project.image && project.image.trim().length > 0
             const hasGithub = !!project.github && project.github.trim().length > 0
@@ -71,36 +73,33 @@ export default function Projects() {
             return (
               <div
                 key={index}
-                className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-green-500/40 transition-all duration-300"
+                className="group overflow-hidden border border-white/15 bg-white text-zinc-950 transition hover:-translate-y-1 hover:border-white"
               >
-                {/* IMAGE */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden border-b border-zinc-200 bg-zinc-100">
                   {hasImage ? (
                     <Image
                       src={project.image!}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
                     />
                   ) : (
-                    <div className="h-full w-full bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
-                      <div className="flex items-center gap-2 text-zinc-400">
-                        <ImageIcon className="h-5 w-5" />
-                        <span className="text-sm">Add project image</span>
-                      </div>
+                    <div className="flex h-full w-full items-center justify-center bg-zinc-200">
+                      <span className="font-mono text-xs uppercase tracking-[0.28em] text-zinc-600">
+                        Project image placeholder
+                      </span>
                     </div>
                   )}
 
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition" />
+                  <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/0" />
 
-                  {/* ACTION BUTTONS */}
-                  <div className="absolute top-4 right-4 flex gap-2">
+                  <div className="absolute right-4 top-4 flex gap-2">
                     {hasGithub ? (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center"
+                        className="flex h-10 w-10 items-center justify-center border border-white/80 bg-white text-zinc-950 transition hover:bg-zinc-950 hover:text-white"
                         aria-label={`Open ${project.title} on GitHub`}
                       >
                         <Github size={18} className="text-black" />
@@ -108,12 +107,12 @@ export default function Projects() {
                     ) : (
                       <button
                         type="button"
-                        className="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center cursor-not-allowed"
+                        className="flex h-10 w-10 cursor-not-allowed items-center justify-center border border-white/40 bg-white/40"
                         aria-label="GitHub link not added"
                         title="Add your GitHub repo link"
                         disabled
                       >
-                        <Github size={18} className="text-black/60" />
+                        <Github size={18} className="text-zinc-500" />
                       </button>
                     )}
 
@@ -122,7 +121,7 @@ export default function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center"
+                        className="flex h-10 w-10 items-center justify-center border border-white/80 bg-white text-zinc-950 transition hover:bg-zinc-950 hover:text-white"
                         aria-label={`Open live demo for ${project.title}`}
                       >
                         <ExternalLink size={18} className="text-black" />
@@ -130,31 +129,30 @@ export default function Projects() {
                     ) : (
                       <button
                         type="button"
-                        className="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center cursor-not-allowed"
+                        className="flex h-10 w-10 cursor-not-allowed items-center justify-center border border-white/40 bg-white/40"
                         aria-label="Demo link not added"
                         title="Add a demo link (optional)"
                         disabled
                       >
-                        <ExternalLink size={18} className="text-black/60" />
+                        <ExternalLink size={18} className="text-zinc-500" />
                       </button>
                     )}
                   </div>
                 </div>
 
-                {/* CONTENT */}
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2 text-white group-hover:text-green-500 transition-colors">
+                  <h3 className="text-2xl font-semibold tracking-[-0.03em] text-zinc-950 transition-colors group-hover:text-zinc-700">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-4 leading-relaxed">
+                  <p className="mt-3 text-sm leading-7 text-zinc-600">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs rounded-full bg-green-500/10 text-green-400 border border-green-500/20"
+                        className="border border-zinc-200 bg-zinc-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-700"
                       >
                         {tech}
                       </span>
