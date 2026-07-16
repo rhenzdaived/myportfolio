@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Download, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 type NavLink = { name: string; href: string }
 
@@ -50,14 +50,14 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4">
+        <div className="flex h-16 min-w-0 items-center justify-between gap-3 sm:gap-4">
           <a
             href="#home"
             onClick={(e) => onNavClick(e, '#home')}
-            className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-zinc-950 transition-opacity hover:opacity-70"
+            className="flex min-w-0 items-center gap-2 sm:gap-3 text-sm font-semibold uppercase tracking-[0.22em] sm:tracking-[0.28em] text-zinc-950 transition-opacity hover:opacity-70"
           >
             <span className="font-mono text-[10px] tracking-[0.4em] text-zinc-500">RP</span>
-            <span>Dabed</span>
+            <span className="truncate">Dabed</span>
           </a>
 
           <div className="hidden items-center gap-7 md:flex">
@@ -75,7 +75,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="inline-flex items-center justify-center border border-zinc-950 px-3 py-2 text-zinc-950 transition hover:bg-zinc-950 hover:text-white md:hidden"
+            className="inline-flex shrink-0 items-center justify-center border border-zinc-950 px-3 py-2 text-zinc-950 transition hover:bg-zinc-950 hover:text-white md:hidden"
             onClick={() => setIsOpen((v) => !v)}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
@@ -103,16 +103,6 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-
-          <a
-            href="/resume.pdf"
-            download
-            className="mt-3 inline-flex items-center gap-2 border border-zinc-950 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-950"
-            onClick={() => setIsOpen(false)}
-          >
-            <Download size={14} />
-            Download Resume
-          </a>
         </div>
       </div>
     </nav>
