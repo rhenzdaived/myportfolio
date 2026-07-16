@@ -132,14 +132,14 @@ export default function Certifications() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div className="flex touch-pan-y gap-4">
+          <div className="flex touch-pan-y items-stretch gap-4">
             {certifications.map((certification) => (
-              <div key={certification.name} className="min-w-0 flex-[0_0_86%] sm:flex-[0_0_60%] lg:flex-[0_0_38%]">
+              <div key={certification.name} className="min-w-0 h-full flex-[0_0_86%] sm:flex-[0_0_60%] lg:flex-[0_0_38%]">
                 <a
                   href={certification.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block h-full border border-zinc-200 bg-zinc-50 p-5 transition hover:border-zinc-950 hover:bg-white"
+                  className="group flex h-full flex-col border border-zinc-200 bg-zinc-50 p-5 transition hover:border-zinc-950 hover:bg-white"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3">
@@ -147,7 +147,7 @@ export default function Certifications() {
                         <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">
                           Certificate
                         </p>
-                        <p className="mt-2 text-lg font-semibold tracking-[-0.03em] text-zinc-950">
+                        <p className="mt-2 min-h-[3.4rem] overflow-hidden text-lg font-semibold tracking-[-0.03em] text-zinc-950 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
                           {certification.name}
                         </p>
                       </div>
@@ -194,7 +194,7 @@ export default function Certifications() {
                     </div>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between border-t border-zinc-200 pt-4 text-xs uppercase tracking-[0.24em] text-zinc-500">
+                  <div className="mt-auto flex items-center justify-between border-t border-zinc-200 pt-4 text-xs uppercase tracking-[0.24em] text-zinc-500">
                     <span>{certification.issuer}</span>
                     <span className="inline-flex items-center gap-2 text-zinc-700">
                       View on Credly

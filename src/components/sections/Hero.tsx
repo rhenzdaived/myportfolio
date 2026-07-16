@@ -1,4 +1,4 @@
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight, FileText } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -20,21 +20,22 @@ export default function Hero() {
             dependable systems, and clear technical communication.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.22em] text-zinc-300">
-            <span className="border border-white/15 px-3 py-2">peliganrhenzdaived@gmail.com</span>
-            <span className="border border-white/15 px-3 py-2">github.com/rhenzdaived</span>
-            <span className="border border-white/15 px-3 py-2">linkedin.com/in/rhenzdaived</span>
+          <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.14em] sm:tracking-[0.22em] text-zinc-300">
+            <span className="break-all border border-white/15 px-3 py-2 sm:break-normal">peliganrhenzdaived@gmail.com</span>
+            <span className="break-all border border-white/15 px-3 py-2 sm:break-normal">github.com/rhenzdaived</span>
+            <span className="break-all border border-white/15 px-3 py-2 sm:break-normal">linkedin.com/in/rhenzdaived</span>
             <span className="border border-white/15 px-3 py-2">Batangas, Philippines</span>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href="/resume.pdf"
-              download
+              href="/resume/Rhenz%20Peligan%20-%20Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-zinc-950 transition hover:bg-transparent hover:text-white"
             >
-              <Download size={14} />
-              Download Resume (PDF)
+              <FileText size={14} />
+              View Resume (PDF)
             </a>
             <a
               href="#projects"

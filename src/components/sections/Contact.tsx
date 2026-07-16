@@ -1,4 +1,4 @@
-import { Download, Github, Linkedin, Mail, MapPin, PhoneCallIcon} from 'lucide-react'
+import {FileText, Github, Linkedin, MapPin, PhoneCallIcon } from 'lucide-react'
 
 export default function Contact() {
   return (
@@ -20,7 +20,7 @@ export default function Contact() {
             </p>
             <a
               href="mailto:peliganrhenzdaived@gmail.com?subject=Portfolio%20Inquiry"
-              className="mt-5 block text-3xl font-semibold tracking-[-0.04em] transition hover:text-zinc-600"
+              className="mt-5 block break-all text-2xl font-semibold tracking-[-0.04em] transition hover:text-zinc-600 sm:break-normal sm:text-3xl"
             >
               peliganrhenzdaived@gmail.com
             </a>
@@ -32,11 +32,7 @@ export default function Contact() {
             <div className="mt-8 space-y-3 border-t border-zinc-200 pt-6 text-sm text-zinc-600">
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-zinc-700" />
-                <span>Batangas, Philippines</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-zinc-700" />
-                <span>peliganrhenzdaived@gmail.com</span>
+                <span>Batangas City, Batangas, Philippines</span>
               </div>
               <div className="flex items-center gap-3">
                 <PhoneCallIcon className="h-4 w-4 text-zinc-700" />
@@ -47,17 +43,18 @@ export default function Contact() {
 
           <div className="grid gap-4">
             <a
-              href="/resume.pdf"
-              download
+              href="/resume/Rhenz%20Peligan%20-%20Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-between border border-white/15 bg-white/5 px-6 py-5 transition hover:bg-white hover:text-zinc-950"
             >
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
                   Resume
                 </p>
-                <p className="mt-2 text-lg font-semibold">Download PDF</p>
+                <p className="mt-2 text-lg font-semibold">View PDF</p>
               </div>
-              <Download size={18} />
+              <FileText size={18} />
             </a>
 
             <a
@@ -70,7 +67,7 @@ export default function Contact() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
                   GitHub
                 </p>
-                <p className="mt-2 text-lg font-semibold">github.com/rhenzdaived</p>
+                <p className="mt-2 break-all text-lg font-semibold sm:break-normal">github.com/rhenzdaived</p>
               </div>
               <Github size={18} />
             </a>
@@ -85,7 +82,7 @@ export default function Contact() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-400">
                   LinkedIn
                 </p>
-                <p className="mt-2 text-lg font-semibold">linkedin.com/in/rhenzdaived</p>
+                <p className="mt-2 break-all text-lg font-semibold sm:break-normal">linkedin.com/in/rhenzdaived</p>
               </div>
               <Linkedin size={18} />
             </a>
