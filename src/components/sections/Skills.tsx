@@ -1,12 +1,80 @@
 'use client'
 
 import { Code2, Cloud, Shield, Wrench, ServerCog, TerminalSquare } from 'lucide-react'
+import {
+  Database,
+  Bug,
+  Radar,
+  ShieldAlert,
+  Network,
+  Route,
+  ShieldCheck,
+  Search,
+  CloudCog,
+} from 'lucide-react'
+import { IconType } from 'react-icons'
+import {
+  SiPython,
+  SiJavascript,
+  SiPhp,
+  SiNextdotjs,
+  SiReact,
+  SiLaravel,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiKalilinux,
+  SiWireshark,
+  SiOwasp,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+} from 'react-icons/si'
 
 type SkillCategory = {
   title: string
   subtitle: string
   icon: React.ReactNode
   skills: string[]
+}
+
+// Maps a skill label to its icon. Branded tools use their real logo
+// (react-icons/si); tools without a dedicated logo fall back to a
+// neutral lucide-react icon that best represents the concept.
+const skillIconMap: Record<string, IconType | React.ComponentType<{ className?: string }>> = {
+  Python: SiPython,
+  JavaScript: SiJavascript,
+  PHP: SiPhp,
+  SQL: Database,
+  'Next.js': SiNextdotjs,
+  React: SiReact,
+  Laravel: SiLaravel,
+  'Node.js': SiNodedotjs,
+  'Tailwind CSS': SiTailwindcss,
+  'Kali Linux': SiKalilinux,
+  Wireshark: SiWireshark,
+  'Burp Suite': Bug,
+  'OWASP ZAP': SiOwasp,
+  Nmap: Radar,
+  Nikto: ShieldAlert,
+  'AWS Cloud': CloudCog,
+  Firebase: SiFirebase,
+  'TCP/IP': Network,
+  'Routing & Switching': Route,
+  'Network Defense Basics': ShieldCheck,
+  Troubleshooting: Search,
+  Git: SiGit,
+  GitHub: SiGithub,
+}
+
+function SkillBadge({ skill }: { skill: string }) {
+  const Icon = skillIconMap[skill] ?? Code2
+
+  return (
+    <span className="inline-flex items-center gap-1.5 border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.16em] text-zinc-700 transition group-hover:border-zinc-950 group-hover:text-zinc-950">
+      <Icon className="h-3.5 w-3.5 shrink-0" />
+      {skill}
+    </span>
+  )
 }
 
 export default function Skills() {
@@ -78,12 +146,7 @@ export default function Skills() {
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-flex items-center border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.16em] text-zinc-700 transition group-hover:border-zinc-950 group-hover:text-zinc-950"
-                  >
-                    {skill}
-                  </span>
+                  <SkillBadge key={skill} skill={skill} />
                 ))}
               </div>
             </div>
