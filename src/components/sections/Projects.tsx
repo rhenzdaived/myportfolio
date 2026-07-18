@@ -1,7 +1,25 @@
 'use client'
 
 import Image from 'next/image'
-import { ExternalLink, Github } from 'lucide-react'
+import { Github } from 'lucide-react'
+import { IconType } from 'react-icons'
+import {
+  SiPhp,
+  SiLaravel,
+  SiTailwindcss,
+  SiPostgresql,
+  SiReact,
+  SiJavascript,
+  SiNodedotjs,
+  SiFirebase,
+  SiPython,
+  SiRaspberrypi,
+  SiOpencv,
+  SiDjango,
+  SiMysql,
+  SiBootstrap,
+} from 'react-icons/si'
+import { Cpu } from 'lucide-react'
 
 type Project = {
   title: string
@@ -9,19 +27,48 @@ type Project = {
   techStack: string[]
   image?: string
   github?: string
-  demo?: string
+}
+
+// Maps a tech stack label to its icon. Falls back to a generic Cpu icon
+// if no dedicated logo exists (e.g. GPIO).
+const techIconMap: Record<string, IconType> = {
+  PHP: SiPhp,
+  Laravel: SiLaravel,
+  TailwindCSS: SiTailwindcss,
+  PostgreSQL: SiPostgresql,
+  React: SiReact,
+  JavaScript: SiJavascript,
+  'Node.js': SiNodedotjs,
+  Firebase: SiFirebase,
+  Python: SiPython,
+  'Raspberry Pi': SiRaspberrypi,
+  GPIO: Cpu,
+  OpenCV: SiOpencv,
+  Django: SiDjango,
+  MySQL: SiMysql,
+  Bootstrap: SiBootstrap,
+}
+
+function TechBadge({ tech }: { tech: string }) {
+  const Icon = techIconMap[tech] ?? Cpu
+
+  return (
+    <span className="flex items-center gap-1.5 border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-700 transition-colors group-hover:border-zinc-300">
+      <Icon size={13} className="shrink-0 text-zinc-950" />
+      {tech}
+    </span>
+  )
 }
 
 export default function Projects() {
   const projects: Project[] = [
     {
-      title: 'EggSight Dashboard',
+      title: 'Recruitr - Job Portal System',
       description:
-        'A web-based dashboard for real-time tracking and operational visibility in the capstone workflow.',
-      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Firebase'],
-      image: '/images/eggsight.png',
-      github: 'https://github.com/rhenzdaived/Egg_Dashboard',
-      demo: 'https://eggsight.online',
+        'A role-based recruitment platform streamlining the job search, hiring workflow, and administrative management in a single responsive web application.',
+      techStack: ['PHP', 'Laravel', 'TailwindCSS', 'PostgreSQL'],
+      image: '/images/recruitr.png',
+      github: 'https://github.com/rhenzdaived/Recruitr---Job-Portal-System.git',
     },
     {
       title: 'Renta Juan',
@@ -30,7 +77,6 @@ export default function Projects() {
       techStack: ['React', 'JavaScript', 'Node.js', 'Firebase'],
       image: '/images/rentajuan.png',
       github: 'https://github.com/rhenzdaived/RentaJuan',
-      demo: '',
     },
     {
       title: 'IoT-Based Rotten Egg Sorting Device Script',
@@ -39,7 +85,6 @@ export default function Projects() {
       techStack: ['Python', 'Raspberry Pi', 'GPIO', 'OpenCV'],
       image: '/images/script.png',
       github: 'https://github.com/rhenzdaived/EggSight-Script',
-      demo: '',
     },
     {
       title: 'Ecocraft Employee Management System',
@@ -48,7 +93,6 @@ export default function Projects() {
       techStack: ['Python', 'Django', 'MySQL', 'Bootstrap'],
       image: '/images/ecocraft.png',
       github: 'https://github.com/rhenzdaived/EcoCraft-Employee-Management-System',
-      demo: '',
     },
   ]
 
@@ -68,7 +112,6 @@ export default function Projects() {
           {projects.map((project, index) => {
             const hasImage = !!project.image && project.image.trim().length > 0
             const hasGithub = !!project.github && project.github.trim().length > 0
-            const hasDemo = !!project.demo && project.demo.trim().length > 0
 
             return (
               <div
@@ -102,7 +145,7 @@ export default function Projects() {
                         className="flex h-10 w-10 items-center justify-center border border-white/80 bg-white text-zinc-950 transition hover:bg-zinc-950 hover:text-white"
                         aria-label={`Open ${project.title} on GitHub`}
                       >
-                        <Github size={18} className="text-black" />
+                        <Github size={18} />
                       </a>
                     ) : (
                       <button
@@ -113,28 +156,6 @@ export default function Projects() {
                         disabled
                       >
                         <Github size={18} className="text-zinc-500" />
-                      </button>
-                    )}
-
-                    {hasDemo ? (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center border border-white/80 bg-white text-zinc-950 transition hover:bg-zinc-950 hover:text-white"
-                        aria-label={`Open live demo for ${project.title}`}
-                      >
-                        <ExternalLink size={18} className="text-black" />
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        className="flex h-10 w-10 cursor-not-allowed items-center justify-center border border-white/40 bg-white/40"
-                        aria-label="Demo link not added"
-                        title="Add a demo link (optional)"
-                        disabled
-                      >
-                        <ExternalLink size={18} className="text-zinc-500" />
                       </button>
                     )}
                   </div>
@@ -150,12 +171,7 @@ export default function Projects() {
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="border border-zinc-200 bg-zinc-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-700"
-                      >
-                        {tech}
-                      </span>
+                      <TechBadge key={tech} tech={tech} />
                     ))}
                   </div>
                 </div>
